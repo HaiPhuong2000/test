@@ -1,0 +1,116 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+$bg-select: #42a7fe;
+$item-color: #b3bbce;
+$color-hover: #74809d;
+
+html {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  background-color: #f3faff;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.dropdown {
+  width: 40rem;
+  margin: 2rem auto 2rem;
+  position: relative;
+
+  &:hover {
+    .dropdown__list {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__select {
+    padding: 2rem 2.5rem 2rem 4rem;
+    background-color: $bg-select;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__text {
+    margin-left: 3.5rem;
+  }
+  &__caret {
+    margin-left: auto;
+  }
+  &__list {
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px 0 rgba($color: #000000, $alpha: 0.25);
+    border-radius: 5px;
+    background-color: #fff;
+    position: absolute;
+    margin-top: 2rem;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s linear;
+
+    &::before {
+      content: "";
+      position: absolute;
+      // border-left: 10px solid transparent;
+      // border-right: 10px solid transparent;
+      // border-bottom: 10px solid #fff;
+      @include size(2rem);
+      background-color: #fff;
+      border-radius: 3px;
+      top: 0;
+      right: 20px;
+
+      transform: translateY(-50%) rotate(45deg);
+      // z-index: -1;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 3rem;
+      transform: translateY(-100%);
+    }
+  }
+
+  &__item {
+    padding: 2rem 2.5rem 2rem 4rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: $item-color;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+    transition: all 0.2s linear;
+    &:not(:last-child) {
+      border-bottom: 2px solid rgb(226, 226, 226);
+    }
+    &:hover {
+      border-left: 4px solid $bg-select;
+      color: #74809d;
+    }
+  }
+}

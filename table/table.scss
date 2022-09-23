@@ -1,0 +1,146 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin flexbox($align: flex-start, $justify: flex-start, $flex-direction: row, $wrap: nowrap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+$bg-select: #42a7fe;
+$item-color: #b3bbce;
+$color-hover: #74809d;
+$primary: #fa4c53;
+$secondary: #fd9c84;
+$text-color: #291667;
+$gradient: linear-gradient(to right, $primary, $secondary);
+
+html {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  padding: 5rem;
+  background-color: #fbfbfd;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+
+  th {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  td,
+  th {
+    color: #8c94a7;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  thead tr {
+    border-bottom: 1px solid #ccc;
+  }
+
+  .desc {
+    white-space: nowrap;
+    width: 15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .status {
+    display: inline-block;
+    text-align: center;
+    padding: 1rem 3rem;
+    font-weight: bold;
+    border-radius: 2rem;
+
+    &--active {
+      color: green;
+      background-color: rgba(green, 0.2);
+    }
+  }
+
+  .action {
+    display: flex;
+    &-icon {
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  }
+
+  .toggle {
+    &-input {
+      display: none;
+
+      &:checked + .toggle-label {
+        background-color: #00aefd;
+
+        &::before {
+          background-color: #2979ff;
+          transform: translate(3rem, -50%);
+        }
+      }
+    }
+    &-label {
+      display: inline-block;
+      width: 5rem;
+      height: 5px;
+      border-radius: 1rem;
+      background-color: #ccc;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s linear;
+
+      &::before {
+        content: "";
+        position: absolute;
+        @include size(2rem);
+        border-radius: 2rem;
+        background-color: #ccc;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.25s linear;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .table {
+    width: 100%;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

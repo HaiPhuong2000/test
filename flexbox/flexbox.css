@@ -1,0 +1,127 @@
+html {
+  font-size: 62.5%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+  background-color: #f3faff;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.work {
+  max-width: 1200px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.work__tittle {
+  color: #1a0a3b;
+  font-size: 2.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.work__tittle::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 4rem;
+  height: 6px;
+  background-color: #00c899;
+  border-radius: 4px;
+}
+
+.work__filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.work-tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.work-tab__item {
+  padding: 1rem 1.5rem;
+  border: 1px solid #00c899;
+  border-radius: 2rem 0 2rem 2rem;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.work-tab__item:hover {
+  color: #fff;
+  background-color: #00c899;
+}
+
+.work-tab__item:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.work__all {
+  display: inline-block;
+  padding: 5px 1rem;
+  font-size: 1.4rem;
+  color: #00c899;
+  background-color: rgba(0, 200, 153, 0.25);
+}
+
+.work__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -1.5rem;
+}
+
+.work__item {
+  margin-left: 1.5rem;
+  width: calc(25% - 1.5rem);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.work__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+@media screen and (max-width: 1023px) {
+  .work__item {
+    width: calc(50% - 1.5rem);
+    margin-bottom: 1.5rem;
+  }
+}
+/*# sourceMappingURL=flexbox.css.map */
